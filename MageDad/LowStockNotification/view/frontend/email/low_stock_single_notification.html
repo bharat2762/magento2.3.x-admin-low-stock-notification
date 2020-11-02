@@ -1,0 +1,10 @@
+<!--@subject {{trans "Product Low Stock Notification"}} @-->
+<!--@vars {
+"var qty|raw":"Qty"
+"var lowStockHtml":"Low stock items data"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+<h3>The following products having <b>salable quantity below {{var qty|raw}}</b></h3>
+{{var lowStockHtml|raw}}
+{{template config_path="design/email/footer_template"}}

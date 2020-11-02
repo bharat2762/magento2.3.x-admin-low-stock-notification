@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magedad" sortOrder="999" translate="label">
+            <label>MageDad</label>
+        </tab>
+        <section id="lowstocknotification" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+            <label>Admin Low Stock Notification</label>
+            <tab>magedad</tab>
+            <resource>MageDad_LowStockNotification::config_magedad_lowstocknotification</resource>
+            <group id="low_stock_notification" translate="label" sortOrder="200" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Admin Low Stock Notification</label>
+                <field id="active" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select "Yes" to enable the module.</comment>
+                </field>
+                <field id="qty" type="text" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notify for Quantity Below</label>
+                    <comment>Enter qty to define low stock product.</comment>
+                    <validate>required-entry validate-zero-or-greater</validate>
+                </field>
+                <group id="email" translate="label" sortOrder="100" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email</label>
+                    <field id="recipient_email" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Send Emails To</label>
+                        <validate>validate-email</validate>
+                    </field>
+                    <field id="sender_email_identity" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Email Sender</label>
+                        <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    </field>
+                    <field id="email_template" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Email Template</label>
+                        <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                        <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,35 @@
+<?php
+/* @var \Magento\Framework\View\Element\Template $block */
+?>
+<?php
+$lowStockItems = $block->getData('lowStockItems');
+if ($lowStockItems) {?>
+    <table class="details" cellpadding="5" cellspacing="2" border="1">
+        <tr>
+            <th><?= /* @noEscape */ __('Product Name')?></th>
+            <th><?= /* @noEscape */ __('SKU')?></th>
+            <th><?= /* @noEscape */ __('Stock')?></th>
+            <th><?= /* @noEscape */ __('Quantity')?></th>
+            <th><?= /* @noEscape */ __('Salable Quantity')?></th>
+        </tr>
+        <?php foreach ($lowStockItems as $productInfo) {?>
+            <tr>
+                <td>
+                    <?= $block->escapeHtml($productInfo['name']); ?>
+                </td>
+                <td>
+                    <?= $block->escapeHtml($productInfo['sku']); ?>
+                </td>
+                <td>
+                    <?= $block->escapeHtml($productInfo['stockName']); ?>
+                </td>
+                <td>
+                    <?= $block->escapeHtml($productInfo['quantity']); ?>
+                </td>
+                <td>
+                    <b> <?= $block->escapeHtml($productInfo['saleable']); ?></b>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+<?php } ?>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <lowstocknotification>
+            <low_stock_notification>
+                <active>1</active>
+                <qty>1</qty>
+                <email>
+	                <recipient_email>
+	                    <![CDATA[hello@example.com]]>
+	                </recipient_email>
+	                <sender_email_identity>1</sender_email_identity>
+	                <email_template>lowstocknotification_low_stock_notification_email_email_template</email_template>
+	            </email>
+            </low_stock_notification>
+        </lowstocknotification>
+    </default>
+</config>
