@@ -1,8 +1,4 @@
-### For Magento 2.3.x - Download premium version of Admin Low Stock Notification extension from Magento Marketplace
-### <a href="https://marketplace.magento.com/magedad-module-low-stock-notification.html">Download Link for 2.3.x</a>
-### <a href="mailto:bharatcpatel2762@gmail.com">Contact me for 2.2.x</a>
-
-# Magento 2.3.x Admin Low Stock Notification free extension
+# Magento 2.3.x, 2.4.x, Admin Low Stock Notification free extension
 ### For Magento 2.2.x - <a href="https://github.com/bharat2762/magento2-admin-low-stock-notification">Download</a>
 
 Admin Low Stock Notification extension allows you to manage product quantity easily from the Magento admin panel. This extension works with Multi-Source Inventory(MSI) and Multi-Store. Using this extension, you will be notified whenever a product's salable quantity goes below the required value. Low Stock Notification provides a setting to set a low stock threshold for each product. 
@@ -37,3 +33,7 @@ php bin/magento module:disable Bharat_LowStockNotification
 
 **Output**
 <img src="https://raw.githubusercontent.com/bharat2762/screenshots/master/magento2-low-stock-notification/admin-low-stock-notification-free-output.jpg" alt="admin_Screenshot" border="0"/>
+
+## For Magento 2.3.x, 2.4.x - Download premium version of Admin Low Stock Notification extension from Magento Marketplace
+### <a href="https://marketplace.magento.com/magedad-module-low-stock-notification.html">Download Link for 2.3.x, 2.4.x</a>
+### <a href="mailto:bharatcpatel2762@gmail.com">Contact me for 2.2.x</a>
