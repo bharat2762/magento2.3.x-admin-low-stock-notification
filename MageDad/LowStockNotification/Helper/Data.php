@@ -113,6 +113,31 @@ class Data extends AbstractHelper
     private $lowQuantityCollectionFactory;
 
     /**
+     * @var Filesystem
+     */
+    private $filesystem;
+
+    /**
+     * @var DirectoryList
+     */
+    private $directoryList;
+
+    /**
+     * @var Csv
+     */
+    private $csvProcessor;
+
+    /**
+     * @var CollectionFactory
+     */
+    private $productCollectionFactory;
+
+    /**
+     * @var Layout
+     */
+    private $layout;
+
+    /**
      * Data constructor.
      * @param Context $context
      * @param TransportBuilder $transportBuilder
@@ -134,7 +159,7 @@ class Data extends AbstractHelper
         Context $context,
         TransportBuilder $transportBuilder,
         StateInterface $inlineTranslation,
-        StoreManagerInterface $storeManager = null,
+        ?StoreManagerInterface $storeManager,
         StockRepositoryInterface $stockRepository,
         GetStockItemDataInterface $getStockItemData,
         GetStockItemConfigurationInterface $getStockItemConfiguration,
@@ -243,7 +268,7 @@ class Data extends AbstractHelper
         $this->csvProcessor
             ->setEnclosure('"')
             ->setDelimiter(',')
-            ->saveData($filePath, $data);
+            ->appendData($filePath, $data, 'w');
 
         return $filePath;
     }
@@ -289,7 +314,7 @@ class Data extends AbstractHelper
                         ]
                     )
                     ->setTemplateVars(['qty' => $this->getQty(),'lowStockHtml' => $lowStockHtml])
-                    ->setFrom($this->emailSender())
+                    ->setFromByScope($this->emailSender(), $this->storeManager->getStore()->getId())
                     ->addTo($this->emailRecipient());
 
                 $transport->getTransport()->sendMessage();

@@ -33,6 +33,11 @@ class AppendReservationsAfterOrderPlacementPlugin
     private $_getReservationsQuantity;
 
     /**
+     * @var DataHelper
+     */
+    private $helper;
+
+    /**
      * AppendReservationsAfterOrderPlacementPlugin constructor.
      * @param StockByWebsiteIdResolverInterface $stockByWebsiteIdResolver
      * @param GetStockItemDataInterface $getStockItemData
@@ -75,6 +80,9 @@ class AppendReservationsAfterOrderPlacementPlugin
                 $sku = $orderItem->getSku();
                 if ($sku && in_array($orderItem->getProductType(), DataHelper::SUPPORTED_PRODUCT_TYPE)) {
                     $stockItemData = $this->_getStockItemData->execute($sku, $stockId);
+                    if ($stockItemData === null) {
+                        continue;
+                    }
                     $stockItemConfiguration = $this->_getStockItemConfiguration->execute($sku, $stockId);
 
                     $qtyLeftInStock = $stockItemData[GetStockItemDataInterface::QUANTITY]
